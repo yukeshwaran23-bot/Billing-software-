@@ -1,0 +1,3462 @@
+/* =====================================
+   RESET
+===================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  font-family:
+    Arial,
+    sans-serif;
+
+  background: #f7f4f8;
+
+  color: #241c27;
+
+  min-height: 100vh;
+}
+
+
+/* =====================================
+   TOP BAR
+===================================== */
+
+.topbar {
+  height: 76px;
+
+  background: #321039;
+
+  color: white;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding:
+    10px 14px;
+
+  position: sticky;
+
+  top: 0;
+
+  z-index: 50;
+
+  box-shadow:
+    0 3px 12px
+    rgba(50, 16, 57, 0.18);
+}
+.header-left-space {
+  width: 48px;
+}
+
+
+.icon-btn {
+  width: 40px;
+
+  height: 40px;
+
+  border: none;
+
+  background: transparent;
+
+  color: white;
+
+  font-size: 24px;
+
+  cursor: pointer;
+}
+
+
+.hotel-title {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  text-align: center;
+
+  flex: 1;
+
+  justify-content: center;
+}
+
+
+.chef-icon {
+  font-size: 24px;
+
+  color: #d7a849;
+}
+
+
+.hotel-title h1 {
+  font-size: 19px;
+
+  font-weight: 700;
+
+  color: #d7a849;
+
+  line-height: 1.1;
+}
+
+
+.hotel-title p {
+  font-size: 10px;
+
+  color: #eee;
+
+  margin-top: 3px;
+}
+
+
+.add-top-btn {
+  border: none;
+
+  background: #d7a849;
+
+  color: #321039;
+
+  padding:
+    9px 12px;
+
+  border-radius: 8px;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+}
+
+
+/* =====================================
+   MAIN
+===================================== */
+
+main {
+  padding:
+    12px
+    12px
+    95px;
+
+  max-width: 600px;
+
+  margin: auto;
+}
+
+
+/* =====================================
+   SEARCH
+===================================== */
+
+.search-box {
+  height: 48px;
+
+  background: white;
+
+  border: 1px solid #e5dfe7;
+
+  border-radius: 11px;
+
+  display: flex;
+
+  align-items: center;
+
+  padding: 0 12px;
+
+  box-shadow:
+    0 2px 8px
+    rgba(0,0,0,0.04);
+
+  margin-bottom: 10px;
+}
+
+
+.search-icon {
+  font-size: 16px;
+
+  margin-right: 7px;
+}
+
+
+.search-box input {
+  flex: 1;
+
+  border: none;
+
+  outline: none;
+
+  font-size: 14px;
+
+  color: #29212d;
+
+  background: transparent;
+}
+
+
+.search-box input::placeholder {
+  color: #999;
+}
+
+
+.clear-search {
+  border: none;
+
+  background: transparent;
+
+  color: #888;
+
+  font-size: 20px;
+
+  cursor: pointer;
+
+  display: none;
+}
+
+
+/* =====================================
+   FOOD LIST
+===================================== */
+
+.food-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+
+.food-row {
+  background: white;
+
+  min-height: 48px;
+
+  border-radius: 9px;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    auto
+    38px
+    25px;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding:
+    5px
+    8px
+    5px
+    12px;
+
+  border: 1px solid #eee7f0;
+
+  box-shadow:
+    0 1px 5px
+    rgba(0,0,0,0.035);
+}
+
+
+.food-name {
+  font-size: 14px;
+
+  font-weight: 600;
+
+  color: #28202c;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+
+.food-price {
+  font-size: 14px;
+  margin-right: 10px;
+
+  font-weight: 600;
+
+  color: #321039;
+
+  white-space: nowrap;
+}
+
+
+.food-add {
+  width: 34px;
+
+  height: 34px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #321039;
+
+  color: white;
+
+  font-size: 20px;
+
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+
+.food-add:active {
+  transform: scale(0.94);
+}
+
+
+.more-btn {
+  width: 25px;
+
+  height: 34px;
+
+  border: none;
+
+  background: transparent;
+
+  color: #321039;
+
+  font-size: 20px;
+
+  cursor: pointer;
+
+  line-height: 1;
+}
+
+
+/* =====================================
+   THREE DOT MENU
+===================================== */
+
+.item-menu {
+  position: fixed;
+
+  width: 135px;
+
+  background: white;
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 8px 25px
+    rgba(0,0,0,0.18);
+
+  border: 1px solid #eee;
+
+  overflow: hidden;
+
+  z-index: 200;
+}
+
+
+.item-menu.hidden {
+  display: none;
+}
+
+
+.item-menu button {
+  width: 100%;
+
+  border: none;
+
+  background: white;
+
+  padding:
+    12px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  font-size: 13px;
+
+  color: #29212d;
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+
+.item-menu button:hover {
+  background: #f7f1f8;
+}
+
+
+.item-menu .delete-option {
+  color: #d93636;
+}
+
+
+/* =====================================
+   BOTTOM CART
+===================================== */
+
+.bottom-cart {
+  position: fixed;
+
+  bottom: 0;
+
+  left: 0;
+
+  right: 0;
+
+  height: 70px;
+
+  background: #321039;
+
+  z-index: 100;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding:
+    8px
+    12px;
+
+  box-shadow:
+    0 -4px 15px
+    rgba(0,0,0,0.15);
+}
+
+
+.cart-info {
+  display: flex;
+
+  align-items: center;
+
+  gap: 26px;
+
+  color: white;
+}
+
+
+.cart-icon {
+  position: relative;
+
+  font-size: 23px;
+}
+
+
+.cart-icon span {
+  position: absolute;
+
+  top: -7px;
+
+  right: -9px;
+
+  min-width: 17px;
+
+  height: 17px;
+
+  border-radius: 50%;
+
+  background: #d7a849;
+
+  color: #321039;
+
+  font-size: 10px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-weight: bold;
+}
+
+
+.cart-info strong {
+  display: block;
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+
+.cart-info small {
+  display: block;
+
+  font-size: 12px;
+
+  color: #eee;
+
+  margin-top: 2px;
+}
+
+
+.view-bill-btn {
+  border: none;
+
+  background: #d7a849;
+
+  color: #321039;
+
+  border-radius: 8px;
+
+  padding:
+    11px
+    15px;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+.view-bill-btn span {
+  margin-left: 5px;
+
+  font-size: 16px;
+}
+
+
+/* =====================================
+   MODAL
+===================================== */
+
+.modal {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 300;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 18px;
+}
+
+
+.modal.hidden {
+  display: none;
+}
+
+
+.modal-backdrop {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    rgba(25, 15, 28, 0.55);
+}
+
+
+.modal-box {
+  position: relative;
+
+  width: 100%;
+
+  max-width: 380px;
+
+  background: white;
+
+  border-radius: 14px;
+
+  padding: 18px;
+
+  box-shadow:
+    0 15px 45px
+    rgba(0,0,0,0.25);
+
+  z-index: 1;
+}
+
+
+.modal-header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 18px;
+}
+
+
+.modal-header h2 {
+  font-size: 18px;
+
+  color: #281d2c;
+
+  font-weight: 700;
+}
+
+
+.modal-close {
+  border: none;
+
+  background: transparent;
+
+  font-size: 25px;
+
+  color: #555;
+
+  cursor: pointer;
+}
+
+
+.modal-box label {
+  display: block;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  color: #3b303f;
+
+  margin:
+    12px 0 6px;
+}
+
+
+.modal-input {
+  width: 100%;
+
+  height: 45px;
+
+  border:
+    1px solid #ddd;
+
+  border-radius: 8px;
+
+  padding:
+    0 12px;
+
+  font-size: 14px;
+
+  outline: none;
+}
+
+
+.modal-input:focus {
+  border-color: #321039;
+}
+
+
+.modal-buttons {
+  display: flex;
+
+  gap: 9px;
+
+  margin-top: 20px;
+}
+
+
+.modal-buttons button {
+  flex: 1;
+
+  height: 43px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+
+.cancel-btn {
+  background: #eeeaf0;
+
+  color: #312734;
+}
+
+
+.save-btn {
+  background: #321039;
+
+  color: white;
+}
+
+
+/* =====================================
+   DELETE MODAL
+===================================== */
+
+.delete-box {
+  position: relative;
+
+  width: 100%;
+
+  max-width: 350px;
+
+  background: white;
+
+  border-radius: 14px;
+
+  padding: 22px 18px;
+
+  text-align: center;
+
+  z-index: 1;
+}
+
+
+.delete-icon {
+  width: 55px;
+
+  height: 55px;
+
+  margin: 0 auto 12px;
+
+  border-radius: 50%;
+
+  background: #ffe9e9;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 23px;
+}
+
+
+.delete-box h2 {
+  font-size: 17px;
+
+  margin-bottom: 8px;
+}
+
+
+.delete-box p {
+  font-size: 13px;
+
+  line-height: 1.5;
+
+  color: #777;
+}
+
+
+.delete-confirm-btn {
+  background: #e53935;
+
+  color: white;
+}
+
+
+/* =====================================
+   CURRENT BILL PAGE
+===================================== */
+
+.bill-page {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 250;
+
+  background: #f7f4f8;
+
+  overflow-y: auto;
+
+  padding-bottom: 25px;
+}
+
+
+.bill-page.hidden {
+  display: none;
+}
+
+
+.bill-topbar {
+  height: 65px;
+
+  background: #321039;
+
+  color: white;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 0 14px;
+
+  position: sticky;
+
+  top: 0;
+
+  z-index: 10;
+}
+
+
+.bill-topbar h2 {
+  font-size: 18px;
+
+  margin: 0;
+}
+
+
+.back-btn,
+.bill-clear-btn {
+  border: none;
+
+  background: transparent;
+
+  color: white;
+
+  font-size: 23px;
+
+  cursor: pointer;
+}
+
+
+.bill-clear-btn {
+  font-size: 18px;
+}
+
+
+.bill-items {
+  padding: 12px;
+}
+
+
+.bill-item {
+  background: white;
+
+  border-radius: 10px;
+
+  padding:
+    11px;
+
+  margin-bottom: 7px;
+
+  display: grid;
+
+  grid-template-columns:
+  1fr
+  auto
+  auto
+  30px;
+
+  align-items: center;
+
+  gap: 9px;
+
+  border: 1px solid #eee7f0;
+}
+
+
+.bill-item-name {
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+
+.bill-item-price {
+  font-size: 12px;
+
+  color: #777;
+
+  margin-top: 3px;
+}
+
+
+.bill-qty {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+}
+
+
+.bill-qty button {
+  width: 28px;
+
+  height: 28px;
+
+  border: none;
+
+  border-radius: 6px;
+
+  background: #eee8ef;
+
+  color: #321039;
+
+  font-size: 17px;
+
+  cursor: pointer;
+}
+
+
+.bill-qty strong {
+  min-width: 15px;
+
+  text-align: center;
+
+  font-size: 13px;
+}
+
+
+.bill-item-total {
+  font-size: 14px;
+
+  font-weight: 700;
+
+  color: #321039;
+
+  min-width: 55px;
+
+  text-align: right;
+}
+
+
+.bill-total-box {
+  background: white;
+
+  margin:
+    0 12px
+    10px;
+
+  padding:
+    13px;
+
+  border-radius: 11px;
+
+  border: 1px solid #eee7f0;
+}
+.bill-delete-btn {
+  width: 28px;
+  height: 28px;
+
+  border: none;
+  border-radius: 6px;
+
+  background: #ffe9e9;
+  color: #d93636;
+
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.bill-delete-btn:active {
+  transform: scale(0.92);
+}
+
+
+.bill-total-box > div {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 6px 0;
+
+  font-size: 13px;
+}
+
+
+.bill-total-box strong {
+  font-size: 14px;
+}
+
+
+#discount {
+  width: 70px;
+
+  height: 34px;
+
+  border:
+    1px solid #ddd;
+
+  border-radius: 7px;
+
+  text-align: right;
+
+  padding: 0 8px;
+
+  font-size: 13px;
+}
+
+
+.final-total {
+  border-top:
+    1px solid #ddd;
+
+  margin-top: 5px;
+
+  padding-top: 11px !important;
+}
+
+
+.final-total span,
+.final-total strong {
+  font-size: 17px;
+
+  font-weight: 700;
+
+  color: #321039;
+}
+
+
+/* =====================================
+   PAYMENT
+===================================== */
+
+.payment-box {
+  background: white;
+
+  margin:
+    0 12px
+    10px;
+
+  padding:
+    13px;
+
+  border-radius: 11px;
+
+  border: 1px solid #eee7f0;
+}
+
+
+.payment-box h3 {
+  font-size: 14px;
+
+  margin-bottom: 10px;
+}
+
+
+.payment-buttons {
+  display: flex;
+
+  gap: 7px;
+}
+
+
+.payment {
+  flex: 1;
+
+  height: 42px;
+
+  border:
+    1px solid #ddd;
+
+  background: white;
+
+  border-radius: 8px;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+
+.payment.active {
+  background: #321039;
+
+  color: white;
+
+  border-color: #321039;
+}
+
+
+.print-btn {
+  width: calc(100% - 24px);
+
+  margin:
+    2px 12px
+    20px;
+
+  height: 48px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: #d7a849;
+
+  color: #321039;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+/* =====================================
+   EMPTY
+===================================== */
+
+.empty-food {
+  background: white;
+
+  border-radius: 10px;
+
+  padding: 30px 15px;
+
+  text-align: center;
+
+  color: #888;
+
+  font-size: 13px;
+}
+
+
+/* =====================================
+   SMALL SCREENS
+===================================== */
+
+@media (max-width: 360px) {
+
+  .hotel-title h1 {
+    font-size: 17px;
+  }
+
+  .add-top-btn {
+    padding:
+      8px 9px;
+
+    font-size: 12px;
+  }
+
+  .food-row {
+    grid-template-columns:
+      1fr
+      auto
+      35px
+      23px;
+
+    gap: 5px;
+  }
+
+  .food-name,
+  .food-price {
+    font-size: 13px;
+  }
+
+}
+
+
+/* =====================================
+   PRINT RECEIPT
+===================================== */
+
+.receipt-print {
+  display: none;
+}
+
+
+@media print {
+
+  @page {
+    size: 58mm auto;
+
+    margin: 0;
+  }
+
+
+  html,
+  body {
+    width: 58mm !important;
+
+    min-width: 58mm !important;
+
+    max-width: 58mm !important;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+  }
+
+
+  body * {
+    visibility: hidden !important;
+  }
+
+
+  #receiptPrint,
+  #receiptPrint * {
+    visibility: visible !important;
+  }
+
+
+  #receiptPrint {
+    display: block !important;
+
+    position: absolute !important;
+
+    left: 0 !important;
+
+    top: 0 !important;
+
+    width: 58mm !important;
+
+    padding: 3mm !important;
+
+    color: #000 !important;
+
+    background: white !important;
+
+    font-family: monospace !important;
+
+    font-size: 12px !important;
+
+    line-height: 1.4 !important;
+  }
+
+
+  .receipt-title {
+    text-align: center;
+
+    font-size: 16px;
+
+    font-weight: bold;
+  }
+
+
+  .receipt-center {
+    text-align: center;
+  }
+
+
+  .receipt-line {
+    border-top:
+      1px dashed #000;
+
+    margin:
+      5px 0;
+  }
+
+
+  .receipt-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin:
+      3px 0;
+  }
+
+
+  .receipt-item {
+    width: 45%;
+  }
+
+
+  .receipt-qty {
+    width: 15%;
+
+    text-align: center;
+  }
+
+
+  .receipt-price {
+    width: 40%;
+
+    text-align: right;
+  }
+
+
+  .receipt-total {
+    font-weight: bold;
+
+    font-size: 14px;
+  }
+
+
+  .thank-you {
+    text-align: center;
+
+    font-weight: bold;
+
+    margin-top: 5px;
+  }
+
+}
+/* =====================================
+   BILL ACTION BUTTONS
+===================================== */
+
+.bill-action-buttons {
+  display: flex;
+
+  gap: 10px;
+
+  padding:
+    0 12px
+    20px;
+}
+
+
+.bill-action-buttons .print-btn {
+  width: auto;
+
+  flex: 1;
+
+  margin: 0;
+
+  height: 48px;
+}
+
+
+.view-bill-button {
+  flex: 1;
+
+  height: 48px;
+
+  border:
+    2px solid #321039;
+
+  border-radius: 9px;
+
+  background: white;
+
+  color: #321039;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+.view-bill-button:active,
+.preview-print-btn:active,
+.share-bill-btn:active {
+  transform: scale(0.98);
+}
+
+
+/* =====================================
+   RECEIPT PREVIEW OVERLAY
+===================================== */
+
+.receipt-preview-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 500;
+
+  background:
+    rgba(30, 18, 32, 0.62);
+
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: center;
+
+  padding: 0;
+}
+
+
+.receipt-preview-overlay.hidden {
+  display: none;
+}
+
+
+/* =====================================
+   PREVIEW BOX
+===================================== */
+
+.receipt-preview-box {
+  width: 100%;
+
+  max-width: 600px;
+
+  max-height: 92vh;
+
+  background: #fff;
+
+  border-radius:
+    20px 20px 0 0;
+
+  overflow-y: auto;
+
+  box-shadow:
+    0 -8px 30px
+    rgba(0,0,0,0.25);
+
+  padding-bottom: 15px;
+}
+
+
+/* =====================================
+   PREVIEW HEADER
+===================================== */
+
+.receipt-preview-header {
+  height: 62px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  position: sticky;
+
+  top: 0;
+
+  background: white;
+
+  z-index: 5;
+
+  border-bottom:
+    1px solid #eee;
+}
+
+
+.receipt-preview-header h2 {
+  font-size: 18px;
+
+  color: #281d2c;
+
+  margin: 0;
+}
+
+
+.receipt-preview-close {
+  position: absolute;
+
+  right: 15px;
+
+  top: 13px;
+
+  width: 36px;
+
+  height: 36px;
+
+  border: none;
+
+  background: #f1edf2;
+
+  border-radius: 50%;
+
+  font-size: 24px;
+
+  color: #321039;
+
+  cursor: pointer;
+}
+
+
+/* =====================================
+   RECEIPT PAPER
+===================================== */
+
+.preview-receipt-content {
+  margin:
+    12px 16px;
+
+  padding:
+    16px 12px;
+
+  border:
+    1px dashed #d8d0da;
+
+  border-radius: 10px;
+
+  background: white;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  color: #222;
+}
+
+
+.preview-hotel-name {
+  text-align: center;
+
+  font-size: 20px;
+
+  font-weight: 800;
+
+  color: #111;
+
+  margin-bottom: 4px;
+}
+
+
+.preview-subtitle {
+  text-align: center;
+
+  font-size: 12px;
+
+  color: #555;
+
+  margin-bottom: 3px;
+}
+
+
+.preview-contact {
+  text-align: center;
+
+  font-size: 12px;
+
+  color: #333;
+
+  margin-bottom: 10px;
+}
+
+
+.preview-dashed {
+  border-top:
+    1px dashed #777;
+
+  margin:
+    9px 0;
+}
+
+
+.preview-info {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 4px;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+
+.preview-info div:nth-child(even) {
+  text-align: right;
+}
+
+
+.preview-table-head,
+.preview-item-row {
+  display: grid;
+
+  grid-template-columns:
+    1.5fr
+    .5fr
+    .8fr
+    .9fr;
+
+  gap: 4px;
+
+  align-items: center;
+}
+
+
+.preview-table-head {
+  font-size: 12px;
+
+  font-weight: 700;
+}
+
+
+.preview-item-row {
+  font-size: 12px;
+
+  margin-top: 7px;
+}
+
+
+.preview-item-row div:nth-child(n+2),
+.preview-table-head div:nth-child(n+2) {
+  text-align: right;
+}
+
+
+.preview-totals {
+  width: 55%;
+
+  margin-left: auto;
+
+  font-size: 12px;
+}
+
+
+.preview-total-row {
+  display: flex;
+
+  justify-content: space-between;
+
+  padding: 4px 0;
+}
+
+
+.preview-grand-total {
+  font-size: 17px;
+
+  font-weight: 800;
+
+  color: #321039;
+
+  border-top:
+    1px solid #777;
+
+  margin-top: 5px;
+
+  padding-top: 8px;
+}
+
+
+.preview-thank-you {
+  text-align: center;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  margin-top: 18px;
+}
+
+
+.preview-visit {
+  text-align: center;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  margin-top: 3px;
+}
+
+
+.preview-footer {
+  text-align: center;
+
+  font-size: 11px;
+
+  color: #666;
+
+  margin-top: 16px;
+}
+
+
+/* =====================================
+   PREVIEW ACTION BUTTONS
+===================================== */
+
+.preview-action-buttons {
+  display: flex;
+
+  gap: 10px;
+
+  padding:
+    0 16px;
+}
+
+
+.share-bill-btn,
+.preview-print-btn {
+  flex: 1;
+
+  height: 48px;
+
+  border-radius: 9px;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+.share-bill-btn {
+  background: white;
+
+  border:
+    1px solid #ccc;
+
+  color: #321039;
+}
+
+
+.preview-print-btn {
+  background: #d7a849;
+
+  border: none;
+
+  color: #321039;
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 360px) {
+
+  .bill-action-buttons {
+    gap: 7px;
+
+    padding-left: 10px;
+
+    padding-right: 10px;
+  }
+
+  .view-bill-button,
+  .bill-action-buttons .print-btn {
+    font-size: 12px;
+  }
+
+  .receipt-preview-box {
+    max-height: 94vh;
+  }
+
+}
+/* =====================================
+   BOTTOM NAVIGATION
+===================================== */
+
+.bottom-navigation {
+  position: fixed;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 64px;
+
+  background: #321039;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-around;
+
+  z-index: 150;
+
+  box-shadow:
+    0 -3px 12px
+    rgba(0, 0, 0, 0.15);
+}
+
+
+.bottom-nav-item {
+  flex: 1;
+
+  height: 100%;
+
+  border: none;
+
+  background: transparent;
+
+  color: #cfc5d2;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 3px;
+
+  cursor: pointer;
+}
+
+
+.bottom-nav-item span {
+  font-size: 21px;
+
+  line-height: 1;
+}
+
+
+.bottom-nav-item small {
+  font-size: 10px;
+
+  font-weight: 600;
+}
+
+
+.bottom-nav-item.active {
+  color: #d7a849;
+}
+
+
+.bottom-nav-item:active {
+  transform: scale(0.95);
+}
+
+
+/* Make room for bottom navigation */
+
+main {
+  padding-bottom: 145px;
+}
+
+
+/* Current cart sits ABOVE bottom navigation */
+
+.bottom-cart {
+  bottom: 64px;
+}
+/* =====================================
+   HISTORY / DETAIL PAGES
+===================================== */
+
+.app-page {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 350;
+
+  background: #f7f4f8;
+
+  overflow-y: auto;
+
+  padding-bottom: 25px;
+}
+
+
+.app-page.hidden {
+  display: none;
+}
+
+
+/* =====================================
+   PAGE TOPBAR
+===================================== */
+
+.page-topbar {
+  height: 68px;
+
+  background: #321039;
+
+  color: white;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 0 14px;
+
+  position: sticky;
+
+  top: 0;
+
+  z-index: 10;
+}
+
+
+.page-topbar h2 {
+  font-size: 18px;
+
+  font-weight: 700;
+
+  margin: 0;
+}
+
+
+.page-topbar small {
+  display: block;
+
+  font-size: 10px;
+
+  color: #d7a849;
+
+  margin-top: 2px;
+}
+
+
+.page-back-btn {
+  width: 40px;
+
+  height: 40px;
+
+  border: none;
+
+  background: transparent;
+
+  color: white;
+
+  font-size: 27px;
+
+  cursor: pointer;
+}
+
+
+.history-count {
+  min-width: 32px;
+
+  height: 32px;
+
+  border-radius: 50%;
+
+  background: #d7a849;
+
+  color: #321039;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 12px;
+
+  font-weight: 700;
+}
+
+
+.detail-delete-btn {
+  border: none;
+
+  background: transparent;
+
+  color: white;
+
+  font-size: 18px;
+
+  cursor: pointer;
+}
+
+
+/* =====================================
+   HISTORY SEARCH
+===================================== */
+
+.history-search {
+  margin: 12px;
+
+  height: 46px;
+
+  background: white;
+
+  border: 1px solid #e4dce7;
+
+  border-radius: 10px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 0 12px;
+}
+
+
+.history-search span {
+  font-size: 15px;
+}
+
+
+.history-search input {
+  flex: 1;
+
+  border: none;
+
+  outline: none;
+
+  background: transparent;
+
+  font-size: 13px;
+
+  color: #2d2330;
+}
+
+
+/* =====================================
+   HISTORY SUMMARY
+===================================== */
+
+.history-summary {
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
+  gap: 9px;
+
+  margin:
+    0 12px
+    12px;
+}
+
+
+.history-summary > div {
+  background: white;
+
+  border:
+    1px solid #eee7f0;
+
+  border-radius: 10px;
+
+  padding: 11px;
+
+  text-align: center;
+}
+
+
+.history-summary small {
+  display: block;
+
+  font-size: 11px;
+
+  color: #777;
+
+  margin-bottom: 4px;
+}
+
+
+.history-summary strong {
+  display: block;
+
+  font-size: 17px;
+
+  color: #321039;
+}
+
+
+/* =====================================
+   BILL LIST
+===================================== */
+
+.history-bill-list {
+  padding:
+    0 12px
+    20px;
+}
+
+
+.history-date-title {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin:
+    14px 2px
+    7px;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  color: #321039;
+}
+
+
+.history-date-title span {
+  font-size: 11px;
+
+  color: #777;
+
+  font-weight: 500;
+}
+
+
+.history-bill-card {
+  background: white;
+
+  border:
+    1px solid #e8e1ea;
+
+  border-radius: 11px;
+
+  padding: 10px;
+
+  margin-bottom: 7px;
+
+  display: grid;
+
+  grid-template-columns:
+    38px
+    1fr
+    auto
+    18px;
+
+  align-items: center;
+
+  gap: 8px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 2px 7px
+    rgba(0,0,0,0.035);
+}
+
+
+.history-icon {
+  width: 36px;
+
+  height: 36px;
+
+  border-radius: 50%;
+
+  background: #f0e7f3;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 17px;
+}
+
+
+.history-main strong {
+  display: block;
+
+  font-size: 14px;
+
+  color: #2b222f;
+}
+
+
+.history-main small {
+  display: block;
+
+  font-size: 11px;
+
+  color: #777;
+
+  margin-top: 3px;
+}
+
+
+.history-amount {
+  font-size: 14px;
+
+  font-weight: 700;
+
+  color: #321039;
+
+  text-align: right;
+}
+
+
+.history-arrow {
+  font-size: 20px;
+
+  color: #777;
+}
+
+
+.history-empty {
+  background: white;
+
+  border-radius: 11px;
+
+  padding: 35px 15px;
+
+  text-align: center;
+
+  color: #888;
+
+  font-size: 13px;
+}
+
+
+/* =====================================
+   SAVED BILL RECEIPT
+===================================== */
+
+.saved-bill-receipt {
+  background: white;
+
+  margin: 14px 12px;
+
+  border-radius: 12px;
+
+  padding: 18px 14px;
+
+  border:
+    1px solid #e4dce7;
+
+  box-shadow:
+    0 3px 12px
+    rgba(0,0,0,0.05);
+}
+
+
+.saved-receipt-title {
+  text-align: center;
+
+  font-size: 21px;
+
+  font-weight: 800;
+
+  color: #321039;
+
+  margin-bottom: 4px;
+}
+
+
+.saved-receipt-subtitle {
+  text-align: center;
+
+  font-size: 11px;
+
+  color: #777;
+}
+
+
+.saved-receipt-line {
+  border-top:
+    1px dashed #999;
+
+  margin:
+    11px 0;
+}
+
+
+.saved-receipt-info {
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
+  gap: 5px;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+}
+
+
+.saved-receipt-info div:nth-child(even) {
+  text-align: right;
+}
+
+
+.saved-table-head,
+.saved-item-row {
+  display: grid;
+
+  grid-template-columns:
+    1.5fr
+    .5fr
+    .7fr
+    .9fr;
+
+  gap: 4px;
+
+  align-items: center;
+}
+
+
+.saved-table-head {
+  font-size: 11px;
+
+  font-weight: 700;
+}
+
+
+.saved-item-row {
+  font-size: 12px;
+
+  margin-top: 7px;
+}
+
+
+.saved-item-row div:nth-child(n+2),
+.saved-table-head div:nth-child(n+2) {
+  text-align: right;
+}
+
+
+.saved-totals {
+  width: 60%;
+
+  margin-left: auto;
+
+  font-size: 12px;
+}
+
+
+.saved-total-row {
+  display: flex;
+
+  justify-content: space-between;
+
+  padding: 4px 0;
+}
+
+
+.saved-grand-total {
+  border-top:
+    1px solid #888;
+
+  margin-top: 4px;
+
+  padding-top: 8px;
+
+  font-size: 17px;
+
+  font-weight: 800;
+
+  color: #321039;
+}
+
+
+.saved-thank-you {
+  text-align: center;
+
+  font-size: 17px;
+
+  font-weight: 700;
+
+  color: #321039;
+
+  margin-top: 18px;
+}
+
+
+.saved-visit {
+  text-align: center;
+
+  font-size: 13px;
+
+  margin-top: 3px;
+
+  color: #555;
+}
+
+
+/* =====================================
+   DETAIL ACTION BUTTONS
+===================================== */
+
+.saved-bill-actions {
+  display: flex;
+
+  gap: 9px;
+
+  padding:
+    0 12px
+    25px;
+}
+
+
+.saved-share-btn,
+.saved-print-btn {
+  flex: 1;
+
+  height: 48px;
+
+  border-radius: 9px;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+.saved-share-btn {
+  background: white;
+
+  border:
+    1px solid #321039;
+
+  color: #321039;
+}
+
+
+.saved-print-btn {
+  background: #d7a849;
+
+  border: none;
+
+  color: #321039;
+}
+/* =====================================
+   REPORTS PAGE
+===================================== */
+
+.reports-content {
+  padding:
+    12px
+    12px
+    95px;
+
+  max-width: 600px;
+
+  margin: auto;
+}
+
+
+/* =====================================
+   REPORT HEADER
+===================================== */
+
+.reports-title {
+  flex: 1;
+
+  text-align: center;
+}
+.reports-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.reports-title h2 {
+  font-size: 19px;
+
+  font-weight: 700;
+
+  margin: 0;
+}
+
+
+.reports-calendar-btn {
+  width: 40px;
+
+  height: 40px;
+
+  border: none;
+
+  background: transparent;
+
+  color: white;
+
+  font-size: 19px;
+
+  cursor: pointer;
+}
+
+
+/* =====================================
+   MONTH SELECTOR
+===================================== */
+
+.month-selector {
+  background: #fffaf5;
+
+  border:
+    1px solid #e5d8e8;
+
+  border-radius: 13px;
+
+  min-height: 84px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding:
+    8px 10px;
+
+  box-shadow:
+    0 2px 8px
+    rgba(50,16,57,0.05);
+
+  margin-bottom: 12px;
+}
+
+
+.month-center {
+  text-align: center;
+
+  flex: 1;
+}
+
+
+.month-center strong {
+  display: block;
+
+  color: #321039;
+
+  font-size: 18px;
+
+  font-weight: 700;
+}
+
+
+.month-center span {
+  display: block;
+
+  color: #777;
+
+  font-size: 12px;
+
+  margin-top: 5px;
+}
+
+
+.month-arrow {
+  width: 40px;
+
+  height: 40px;
+
+  border: none;
+
+  background: transparent;
+
+  color: #321039;
+
+  font-size: 31px;
+
+  cursor: pointer;
+}
+
+
+/* =====================================
+   SUMMARY CARDS
+===================================== */
+
+.report-summary-cards {
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
+  gap: 10px;
+
+  margin-bottom: 18px;
+}
+
+
+.report-summary-card {
+  min-height: 205px;
+
+  background: white;
+
+  border-radius: 14px;
+
+  padding: 14px;
+
+  border:
+    1px solid #e6ddea;
+
+  box-shadow:
+    0 2px 8px
+    rgba(0,0,0,0.04);
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+
+.items-card {
+  background:
+    linear-gradient(
+      145deg,
+      #fffaff,
+      #f5ebfa
+    );
+}
+
+
+.amount-card {
+  background:
+    linear-gradient(
+      145deg,
+      #fffdf7,
+      #fff5df
+    );
+
+  border-color: #eee0bd;
+}
+
+
+.summary-icon {
+  width: 47px;
+
+  height: 47px;
+
+  border-radius: 50%;
+
+  background: #eee0f8;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 22px;
+
+  margin-bottom: 11px;
+}
+
+
+.amount-icon {
+  background: #faedc9;
+}
+
+
+.summary-label {
+  font-size: 12px;
+
+  color: #666;
+
+  margin-bottom: 4px;
+}
+
+
+.report-summary-card > strong {
+  display: block;
+
+  font-size: 25px;
+
+  color: #321039;
+
+  font-weight: 800;
+
+  margin-bottom: 13px;
+
+  word-break: break-word;
+}
+
+
+.report-summary-card button {
+  width: 100%;
+
+  height: 40px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #321039;
+
+  color: white;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+.amount-card button {
+  background: #d7a849;
+
+  color: #321039;
+}
+
+
+.report-summary-card button span {
+  font-size: 18px;
+
+  margin-left: 5px;
+}
+
+
+/* =====================================
+   DAILY REPORT HEADING
+===================================== */
+
+.daily-report-heading {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin:
+    5px 2px
+    10px;
+}
+
+
+.daily-report-heading h2 {
+  font-size: 18px;
+
+  color: #321039;
+
+  margin: 0;
+}
+
+
+.daily-report-heading button {
+  border: none;
+
+  background: #eee4f5;
+
+  color: #321039;
+
+  border-radius: 18px;
+
+  padding:
+    8px 11px;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+
+/* =====================================
+   DAILY REPORT CARD
+===================================== */
+
+.daily-report-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+
+.daily-report-card {
+  background: white;
+
+  min-height: 108px;
+
+  border:
+    1px solid #e9e2eb;
+
+  border-radius: 13px;
+
+  display: grid;
+
+  grid-template-columns:
+    58px
+    1fr
+    1fr
+    auto;
+
+  align-items: center;
+
+  gap: 7px;
+
+  padding:
+    10px;
+
+  box-shadow:
+    0 2px 7px
+    rgba(0,0,0,0.035);
+}
+
+
+.daily-date {
+  text-align: center;
+
+  border-right:
+    1px solid #ddd;
+
+  padding-right: 7px;
+}
+
+
+.daily-date strong {
+  display: block;
+
+  font-size: 24px;
+
+  color: #321039;
+
+  line-height: 1;
+}
+
+
+.daily-date span {
+  display: block;
+
+  font-size: 10px;
+
+  color: #555;
+
+  margin-top: 4px;
+}
+
+
+.daily-date small {
+  display: block;
+
+  font-size: 9px;
+
+  color: #999;
+
+  margin-top: 3px;
+}
+
+
+.daily-stat {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  min-width: 0;
+}
+
+
+.daily-stat-icon {
+  width: 34px;
+
+  height: 34px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #eee1f8;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 16px;
+}
+
+
+.daily-stat.amount .daily-stat-icon {
+  background: #faedcf;
+}
+
+
+.daily-stat label {
+  display: block;
+
+  font-size: 10px;
+
+  color: #777;
+
+  white-space: nowrap;
+}
+
+
+.daily-stat strong {
+  display: block;
+
+  font-size: 15px;
+
+  color: #321039;
+
+  margin-top: 3px;
+
+  white-space: nowrap;
+}
+
+
+.daily-view-btn {
+  height: 40px;
+
+  padding:
+    0 10px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: #eee1f8;
+
+  color: #321039;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+}
+
+
+.daily-empty {
+  background: white;
+
+  border-radius: 12px;
+
+  padding: 35px 15px;
+
+  text-align: center;
+
+  color: #888;
+
+  font-size: 13px;
+}
+
+
+/* =====================================
+   SMALL MOBILE
+===================================== */
+
+@media (max-width: 380px) {
+
+  .report-summary-card {
+    min-height: 185px;
+
+    padding: 11px;
+  }
+
+
+  .summary-icon {
+    width: 40px;
+
+    height: 40px;
+
+    font-size: 18px;
+  }
+
+
+  .report-summary-card > strong {
+    font-size: 21px;
+  }
+
+
+  .daily-report-card {
+    grid-template-columns:
+      52px
+      1fr
+      1fr
+      auto;
+
+    gap: 4px;
+
+    padding: 8px;
+  }
+
+
+  .daily-stat-icon {
+    width: 29px;
+
+    height: 29px;
+
+    font-size: 13px;
+  }
+
+
+  .daily-stat label {
+    font-size: 9px;
+  }
+
+
+  .daily-stat strong {
+    font-size: 13px;
+  }
+
+
+  .daily-view-btn {
+    padding:
+      0 7px;
+
+    font-size: 10px;
+  }
+
+}
+/* =====================================
+   REPORTS - MEDIUM SIZE
+   ===================================== */
+
+@media (max-width: 600px) {
+
+  .reports-content {
+    padding: 10px 10px 80px;
+  }
+
+  .reports-title h2 {
+    font-size: 17px;
+  }
+
+  .reports-calendar-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 17px;
+  }
+
+  .month-selector {
+    min-height: 72px;
+    margin-bottom: 10px;
+    border-radius: 11px;
+  }
+
+  .month-center strong {
+    font-size: 16px;
+  }
+
+  .month-center span {
+    font-size: 11px;
+    margin-top: 3px;
+  }
+
+  .month-arrow {
+    width: 34px;
+    height: 34px;
+    font-size: 25px;
+  }
+
+  .report-summary-cards {
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  .report-summary-card {
+    min-height: 165px;
+    padding: 11px;
+    border-radius: 12px;
+  }
+
+  .summary-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .summary-label {
+    font-size: 11px;
+    margin-bottom: 3px;
+  }
+
+  .report-summary-card > strong {
+    font-size: 21px;
+    margin-bottom: 10px;
+  }
+
+  .report-summary-card button {
+    height: 36px;
+    font-size: 12px;
+  }
+
+  .report-summary-card button span {
+    font-size: 16px;
+  }
+
+  .daily-report-heading {
+    margin: 4px 2px 8px;
+  }
+
+  .daily-report-heading h2 {
+    font-size: 16px;
+  }
+
+  .daily-report-heading button {
+    padding: 7px 10px;
+    font-size: 10px;
+  }
+
+  .daily-report-list {
+    gap: 7px;
+  }
+
+  .daily-report-card {
+    min-height: 92px;
+    grid-template-columns: 48px 1fr 1fr auto;
+    gap: 5px;
+    padding: 8px;
+    border-radius: 11px;
+  }
+
+  .daily-date {
+    padding-right: 5px;
+  }
+
+  .daily-date strong {
+    font-size: 21px;
+  }
+
+  .daily-date span {
+    font-size: 9px;
+    margin-top: 3px;
+  }
+
+  .daily-date small {
+    font-size: 8px;
+    margin-top: 2px;
+  }
+
+  .daily-stat {
+    gap: 5px;
+  }
+
+  .daily-stat-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+
+  .daily-stat label {
+    font-size: 9px;
+  }
+
+  .daily-stat strong {
+    font-size: 13px;
+    margin-top: 2px;
+  }
+
+  .daily-view-btn {
+    height: 36px;
+    padding: 0 8px;
+    font-size: 10px;
+  }
+}
+/* REPORT CARDS - SMALLER */
+
+@media (max-width: 600px) {
+
+  /* Remove box and coin icons */
+  .summary-icon {
+    display: none;
+  }
+
+  /* Make summary cards smaller */
+  .report-summary-card {
+    min-height: 145px;
+    padding: 10px;
+    border-radius: 11px;
+  }
+
+  /* Move text up after removing icons */
+  .summary-label {
+    margin-top: 4px;
+    font-size: 11px;
+  }
+
+  .report-summary-card > strong {
+    font-size: 20px;
+    margin-bottom: 9px;
+  }
+
+  .report-summary-card button {
+    height: 34px;
+    font-size: 12px;
+  }
+
+}
+/* REPORT SUMMARY CARDS - FIT SIZE */
+
+@media (max-width: 600px) {
+
+  .report-summary-card {
+    min-height: 120px;
+    height: 120px;
+    padding: 10px;
+  }
+
+  .summary-label {
+    margin-top: 0;
+    margin-bottom: 3px;
+    font-size: 11px;
+  }
+
+  .report-summary-card > strong {
+    font-size: 20px;
+    margin-bottom: 7px;
+  }
+
+  .report-summary-card button {
+    height: 34px;
+    font-size: 12px;
+  }
+
+}
+/* =====================================
+   REPORT DETAIL PAGES
+===================================== */
+
+.report-detail-content {
+
+  padding:
+    12px
+    12px
+    30px;
+
+  max-width: 600px;
+
+  margin: auto;
+
+}
+
+
+/* DATE CARD */
+
+.report-detail-date-card {
+
+  background: white;
+
+  border:
+    1px solid #e5dce8;
+
+  border-radius: 14px;
+
+  padding: 14px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 14px;
+
+  box-shadow:
+    0 2px 8px
+    rgba(0,0,0,0.04);
+
+}
+
+
+.report-detail-icon {
+
+  width: 46px;
+
+  height: 46px;
+
+  border-radius: 50%;
+
+  background: #eee0f8;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 21px;
+
+}
+
+
+.report-detail-date-card strong {
+
+  display: block;
+
+  font-size: 17px;
+
+  color: #321039;
+
+}
+
+
+.report-detail-date-card span {
+
+  display: block;
+
+  margin-top: 3px;
+
+  font-size: 12px;
+
+  color: #777;
+
+}
+
+
+/* TABLE */
+
+.report-detail-table {
+
+  background: white;
+
+  border:
+    1px solid #e5dce8;
+
+  border-radius: 14px;
+
+  overflow: hidden;
+
+}
+
+
+.report-table-header,
+.report-item-row {
+
+  display: grid;
+
+  grid-template-columns:
+    35px
+    1fr
+    45px
+    70px;
+
+  gap: 5px;
+
+  align-items: center;
+
+  padding:
+    11px 10px;
+
+}
+
+
+.report-table-header {
+
+  background: #eee4f5;
+
+  color: #321039;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+}
+
+
+.report-item-row {
+
+  min-height: 47px;
+
+  border-top:
+    1px solid #eee7f0;
+
+  font-size: 13px;
+
+  color: #281d2c;
+
+}
+
+
+.report-item-row span:nth-child(3),
+.report-item-row span:nth-child(4) {
+
+  text-align: right;
+
+}
+
+
+.report-item-row span:last-child {
+
+  font-weight: 700;
+
+  color: #321039;
+
+}
+
+
+/* TOTAL */
+
+.report-detail-total {
+
+  margin-top: 14px;
+
+  padding: 15px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #fffdf7,
+      #fff5df
+    );
+
+  border:
+    1px solid #eee0bd;
+
+  border-radius: 14px;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
+  gap: 10px;
+
+}
+
+
+.report-detail-total > div {
+
+  text-align: center;
+
+}
+
+
+.report-detail-total > div:first-child {
+
+  border-right:
+    1px solid #ddcfad;
+
+}
+
+
+.report-detail-total span {
+
+  display: block;
+
+  font-size: 12px;
+
+  color: #666;
+
+  margin-bottom: 5px;
+
+}
+
+
+.report-detail-total strong {
+
+  display: block;
+
+  font-size: 23px;
+
+  color: #321039;
+
+  font-weight: 800;
+
+}
+
+
+@media (max-width: 380px) {
+
+  .report-table-header,
+  .report-item-row {
+
+    grid-template-columns:
+      28px
+      1fr
+      38px
+      62px;
+
+    font-size: 12px;
+
+  }
+
+}

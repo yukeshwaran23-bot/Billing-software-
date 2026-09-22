@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#321039"
+  >
+
+  <title>Sri Hotel Billing</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ==============================
+       APP HEADER
+  =============================== -->
+
+  <header class="topbar">
+
+    <div class="header-left-space"></div>
+
+    <div class="hotel-title">
+
+      <div class="chef-icon">
+        ♨
+      </div>
+
+      <div>
+        <h1>SRI HOTEL</h1>
+
+        <p>
+          Good Food&nbsp; Happy People
+        </p>
+      </div>
+
+    </div>
+
+    <button
+      class="add-top-btn"
+      onclick="openAddModal()"
+    >
+      + Add
+    </button>
+
+  </header>
+
+
+  <!-- ==============================
+       MAIN PAGE
+  =============================== -->
+
+  <main id="mainPage">
+
+    <!-- SEARCH -->
+
+    <section class="search-box">
+
+      <span class="search-icon">
+        🔍
+      </span>
+
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search food item..."
+        oninput="searchProducts()"
+        autocomplete="off"
+      >
+
+      <button
+        id="clearSearch"
+        class="clear-search"
+        onclick="clearSearch()"
+      >
+        ×
+      </button>
+
+    </section>
+
+
+    <!-- FOOD LIST -->
+
+    <section class="food-section">
+
+      <div
+        id="productList"
+        class="food-list"
+      ></div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ==============================
+       BOTTOM CART
+  =============================== -->
+
+  <div class="bottom-cart">
+
+    <div class="cart-info">
+
+  
+
+      <div>
+
+        <strong id="cartItemsText">
+          0 Items
+        </strong>
+
+        <small id="cartTotalText">
+          ₹0
+        </small>
+
+      </div>
+
+    </div>
+
+
+    <button
+      class="view-bill-btn"
+      onclick="openBill()"
+    >
+      View Bill
+      <span>→</span>
+    </button>
+
+  </div>
+
+
+  <!-- ==============================
+       THREE DOT MENU
+  =============================== -->
+
+  <div
+    id="itemMenu"
+    class="item-menu hidden"
+  >
+
+    <button onclick="editSelectedProduct()">
+      ✏️
+      <span>Edit</span>
+    </button>
+
+    <button
+      class="delete-option"
+      onclick="deleteSelectedProduct()"
+    >
+      🗑️
+      <span>Delete</span>
+    </button>
+
+  </div>
+
+
+  <!-- ==============================
+       ADD / EDIT MODAL
+  =============================== -->
+
+  <div
+    id="itemModal"
+    class="modal hidden"
+  >
+
+    <div
+      class="modal-backdrop"
+      onclick="closeItemModal()"
+    ></div>
+
+    <div class="modal-box">
+
+      <div class="modal-header">
+
+        <h2 id="modalTitle">
+          Add New Food Item
+        </h2>
+
+        <button
+          class="modal-close"
+          onclick="closeItemModal()"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+    <label>
+  Food Name (English)
+</label>
+
+<input
+  id="foodName"
+  class="modal-input"
+  type="text"
+  placeholder="Example: Dosa"
+  autocomplete="off"
+>
+
+<label>
+  Food Name (Tamil)
+</label>
+
+<input
+  id="foodNameTamil"
+  class="modal-input"
+  type="text"
+  placeholder="Example: தோசை"
+  autocomplete="off"
+>
+
+
+      <label>
+        Price (₹)
+      </label>
+
+      <input
+        id="foodPrice"
+        class="modal-input"
+        type="number"
+        min="0"
+        step="1"
+        placeholder="Example: 20"
+        inputmode="numeric"
+      >
+
+
+      <div class="modal-buttons">
+
+        <button
+          class="cancel-btn"
+          onclick="closeItemModal()"
+        >
+          Cancel
+        </button>
+
+        <button
+          id="saveItemBtn"
+          class="save-btn"
+          onclick="saveItem()"
+        >
+          Save
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ==============================
+       DELETE MODAL
+  =============================== -->
+
+  <div
+    id="deleteModal"
+    class="modal hidden"
+  >
+
+    <div
+      class="modal-backdrop"
+      onclick="closeDeleteModal()"
+    ></div>
+
+    <div class="delete-box">
+
+      <div class="delete-icon">
+        🗑️
+      </div>
+
+      <h2>
+        Delete Food Item?
+      </h2>
+
+      <p>
+        Are you sure you want to delete
+        <strong id="deleteFoodName">
+          this item
+        </strong>
+        from the menu?
+      </p>
+
+      <div class="modal-buttons">
+
+        <button
+          class="cancel-btn"
+          onclick="closeDeleteModal()"
+        >
+          Cancel
+        </button>
+
+        <button
+          class="delete-confirm-btn"
+          onclick="confirmDelete()"
+        >
+          Delete
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ==============================
+       CURRENT BILL
+  =============================== -->
+
+  <div
+    id="billPage"
+    class="bill-page hidden"
+  >
+
+    <header class="bill-topbar">
+
+      <button
+        class="back-btn"
+        onclick="closeBill()"
+      >
+        ←
+      </button>
+
+      <h2>
+        Current Bill
+      </h2>
+
+      <button
+        class="bill-clear-btn"
+        onclick="clearCart()"
+      >
+        🗑
+      </button>
+
+    </header>
+
+
+    <div
+      id="billItems"
+      class="bill-items"
+    ></div>
+
+
+    <div class="bill-total-box">
+
+      <div>
+        <span>
+          Subtotal
+        </span>
+
+        <strong id="billSubtotal">
+          ₹0
+        </strong>
+      </div>
+
+
+      <div>
+        <span>
+          Discount
+        </span>
+
+        <input
+          id="discount"
+          type="number"
+          value="0"
+          min="0"
+          oninput="updateBillTotal()"
+        >
+      </div>
+
+
+      <div class="final-total">
+
+        <span>
+          Total
+        </span>
+
+        <strong id="billTotal">
+          ₹0
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <div class="payment-box">
+
+      <h3>
+        Payment Method
+      </h3>
+
+      <div class="payment-buttons">
+
+        <button
+          class="payment active"
+          onclick="selectPayment('NONE', this)"
+        >
+         NONE
+        </button>
+
+        <button
+          class="payment"
+          onclick="selectPayment('UPI', this)"
+        >
+           UPI
+        </button>
+
+        <button
+          class="payment"
+          onclick="selectPayment('CASH', this)"
+        >
+          CASH
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="bill-action-buttons">
+
+  <button
+    class="view-bill-button"
+    onclick="previewBill()"
+  >
+    📄 VIEW BILL
+  </button>
+
+  <button
+    class="print-btn"
+    onclick="printBill()"
+  >
+    🖨️ PRINT BILL
+  </button>
+
+    </div>
+
+  </div>
+<!-- ==============================
+     BILL RECEIPT PREVIEW
+================================ -->
+
+<div
+  id="receiptPreviewOverlay"
+  class="receipt-preview-overlay hidden"
+>
+
+  <div class="receipt-preview-box">
+
+    <div class="receipt-preview-header">
+
+      <h2>
+        Bill Receipt
+      </h2>
+
+      <button
+        onclick="closeReceiptPreview()"
+        class="receipt-preview-close"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <div
+      id="previewReceiptContent"
+      class="preview-receipt-content"
+    ></div>
+
+
+    <div class="preview-action-buttons">
+
+      <button
+        class="share-bill-btn"
+        onclick="shareBill()"
+      >
+        ↗ Share Bill
+      </button>
+
+      <button
+        class="preview-print-btn"
+        onclick="printBill()"
+      >
+        🖨️ Print Bill
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+  <!-- RECEIPT -->
+
+  <div
+    id="receiptPrint"
+    class="receipt-print"
+  ></div>
+<!-- ==============================
+     BOTTOM NAVIGATION
+================================ -->
+
+<nav class="bottom-navigation">
+
+  <button
+    class="bottom-nav-item active"
+    onclick="goToBilling()"
+  >
+    <span>⌂</span>
+    <small>Billing</small>
+  </button>
+
+  <button
+    class="bottom-nav-item"
+    onclick="goToHistory()"
+  >
+    <span>▣</span>
+    <small>History</small>
+  </button>
+
+  <button
+    class="bottom-nav-item"
+    onclick="goToReports()"
+  >
+    <span>▥</span>
+    <small>Reports</small>
+  </button>
+
+  
+
+</nav>
+  <!-- =====================================
+     SALES HISTORY PAGE
+===================================== -->
+
+<section
+  id="salesHistoryPage"
+  class="app-page hidden"
+>
+
+  <header class="page-topbar">
+
+    <button
+      class="page-back-btn"
+      onclick="goToBilling()"
+    >
+      ←
+    </button>
+
+    <div>
+      <h2>Sales History</h2>
+      <small>Saved Bills</small>
+    </div>
+
+    <div class="history-count">
+      <span id="historyBillCount">0</span>
+    </div>
+
+  </header>
+
+
+  <!-- SEARCH -->
+
+  <div class="history-search">
+
+    <span>🔍</span>
+
+    <input
+      type="text"
+      id="historySearch"
+      placeholder="Search bill number..."
+      oninput="searchHistory()"
+    >
+
+  </div>
+
+
+  <!-- SUMMARY -->
+
+  <div class="history-summary">
+
+    <div>
+      <small>Total Bills</small>
+      <strong id="historyTotalBills">
+        0
+      </strong>
+    </div>
+
+    <div>
+      <small>Total Sales</small>
+      <strong id="historyTotalSales">
+        ₹0
+      </strong>
+    </div>
+
+  </div>
+
+
+  <!-- BILL LIST -->
+
+  <div
+    id="historyBillList"
+    class="history-bill-list"
+  ></div>
+
+</section>
+
+
+<!-- =====================================
+     SAVED BILL DETAIL PAGE
+===================================== -->
+
+<section
+  id="savedBillDetailPage"
+  class="app-page hidden"
+>
+
+  <header class="page-topbar">
+
+    <button
+      class="page-back-btn"
+      onclick="closeSavedBillDetail()"
+    >
+      ←
+    </button>
+
+    <div>
+      <h2>Bill Details</h2>
+      <small id="detailBillNumber">
+        #000000
+      </small>
+    </div>
+
+    <button
+      class="detail-delete-btn"
+      onclick="deleteSavedBill()"
+    >
+      🗑
+    </button>
+
+  </header>
+
+
+  <!-- SAVED RECEIPT -->
+
+  <div
+    id="savedBillReceipt"
+    class="saved-bill-receipt"
+  ></div>
+
+
+  <!-- ACTIONS -->
+
+  <div class="saved-bill-actions">
+
+    <button
+      class="saved-share-btn"
+      onclick="shareSavedBill()"
+    >
+      ↗ Share Bill
+    </button>
+
+    <button
+      class="saved-print-btn"
+      onclick="printSavedBill()"
+    >
+      🖨️ Print Bill
+    </button>
+
+  </div>
+
+</section>
+  <!-- =====================================
+     REPORTS PAGE
+===================================== -->
+
+<section
+  id="reportsPage"
+  class="app-page hidden"
+>
+
+  <header class="page-topbar">
+
+    <button
+      class="page-back-btn"
+      onclick="goToBilling()"
+    >
+      ←
+    </button>
+
+    <div class="reports-title">
+      <h2>Reports</h2>
+    </div>
+
+  
+
+  </header>
+
+
+  <div class="reports-content">
+
+
+    <!-- MONTH SELECTOR -->
+
+    <div class="month-selector">
+
+      <button
+        class="month-arrow"
+        onclick="changeReportMonth(-1)"
+      >
+        ‹
+      </button>
+
+
+      <div class="month-center">
+
+        <strong id="reportMonthTitle">
+          September 2026
+        </strong>
+
+        <span id="reportDateRange">
+          Sep 1, 2026 – Sep 30, 2026
+        </span>
+
+      </div>
+
+
+      <button
+        class="month-arrow"
+        onclick="changeReportMonth(1)"
+      >
+        ›
+      </button>
+
+    </div>
+
+
+    <!-- =================================
+         TWO SUMMARY CARDS
+    ================================== -->
+
+    <div class="report-summary-cards">
+
+
+      <!-- TOTAL ITEMS -->
+
+      <div class="report-summary-card items-card">
+
+        <div class="summary-icon">
+          📦
+        </div>
+
+        <div class="summary-label">
+          Total Items
+        </div>
+
+        <strong id="monthlyTotalItems">
+          0
+        </strong>
+
+        <button
+          onclick="viewMonthlyItems()"
+        >
+          View <span>›</span>
+        </button>
+
+      </div>
+
+
+      <!-- TOTAL AMOUNT -->
+
+      <div class="report-summary-card amount-card">
+
+        <div class="summary-icon amount-icon">
+          🪙
+        </div>
+
+        <div class="summary-label">
+          Total Amount
+        </div>
+
+        <strong id="monthlyTotalAmount">
+          ₹0
+        </strong>
+
+        <button
+          onclick="viewMonthlyAmount()"
+        >
+          View <span>›</span>
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- DAILY REPORT HEADER -->
+
+    <div class="daily-report-heading">
+
+      <h2>
+        Daily Report
+      </h2>
+
+      <button
+        id="reportSortButton"
+        onclick="toggleReportSort()"
+      >
+        ↕ Latest First
+        <span>⌄</span>
+      </button>
+
+    </div>
+
+
+    <!-- DAILY REPORT LIST -->
+
+    <div
+      id="dailyReportList"
+      class="daily-report-list"
+    ></div>
+
+  </div>
+
+</section>
+  <!-- =====================================
+     MONTHLY REPORT DETAILS
+===================================== -->
+
+<section
+  id="monthlyReportDetailsPage"
+  class="app-page hidden"
+>
+
+  <header class="page-topbar">
+
+    <button
+      class="page-back-btn"
+      onclick="closeMonthlyReportDetails()"
+    >
+      ←
+    </button>
+
+    <div>
+      <h2>Monthly Details</h2>
+
+      <small id="monthlyDetailsMonth">
+        September 2026
+      </small>
+    </div>
+
+    <div></div>
+
+  </header>
+
+
+  <div class="report-detail-content">
+
+    <div class="report-detail-date-card">
+
+      <div class="report-detail-icon">
+        📅
+      </div>
+
+      <div>
+
+        <strong id="monthlyDetailsTitle">
+          September 2026
+        </strong>
+
+        <span id="monthlyDetailsRange">
+          1 Sept 2026 – 30 Sept 2026
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <div class="report-detail-table">
+
+      <div class="report-table-header">
+
+        <span>No.</span>
+
+        <span>Item Name</span>
+
+        <span>Qty</span>
+
+        <span>Amount</span>
+
+      </div>
+
+
+      <div id="monthlyItemList"></div>
+
+    </div>
+
+
+    <div class="report-detail-total">
+
+      <div>
+
+        <span>Total Items</span>
+
+        <strong id="monthlyDetailTotalItems">
+          0
+        </strong>
+
+      </div>
+
+      <div>
+
+        <span>Total Amount</span>
+
+        <strong id="monthlyDetailTotalAmount">
+          ₹0
+        </strong>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================
+     DAILY REPORT DETAILS
+===================================== -->
+
+<section
+  id="dailyReportDetailsPage"
+  class="app-page hidden"
+>
+
+  <header class="page-topbar">
+
+    <button
+      class="page-back-btn"
+      onclick="closeDailyReportDetails()"
+    >
+      ←
+    </button>
+
+    <div>
+
+      <h2>Daily Details</h2>
+
+      <small id="dailyDetailsDate">
+        21 September 2026
+      </small>
+
+    </div>
+
+    <div></div>
+
+  </header>
+
+
+  <div class="report-detail-content">
+
+    <div class="report-detail-date-card">
+
+      <div class="report-detail-icon">
+        📅
+      </div>
+
+      <div>
+
+        <strong id="dailyDetailsTitle">
+          21 September 2026
+        </strong>
+
+        <span id="dailyDetailsWeekday">
+          Monday
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <div class="report-detail-table">
+
+      <div class="report-table-header">
+
+        <span>No.</span>
+
+        <span>Item Name</span>
+
+        <span>Qty</span>
+
+        <span>Amount</span>
+
+      </div>
+
+
+      <div id="dailyItemList"></div>
+
+    </div>
+
+
+    <div class="report-detail-total">
+
+      <div>
+
+        <span>Total Items</span>
+
+        <strong id="dailyDetailTotalItems">
+          0
+        </strong>
+
+      </div>
+
+      <div>
+
+        <span>Total Amount</span>
+
+        <strong id="dailyDetailTotalAmount">
+          ₹0
+        </strong>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+  <!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyArtLRe3g1jRqj77Zow3mE89b7DVxsaUlU",
+    authDomain: "billing-software-1afaa.firebaseapp.com",
+    projectId: "billing-software-1afaa",
+    storageBucket: "billing-software-1afaa.firebasestorage.app",
+    messagingSenderId: "247844784678",
+    appId: "1:247844784678:web:858e2331b1f4507a12f4e7",
+    measurementId: "G-G2CNBMY5XG"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+
+  const db = firebase.firestore();
+</script>
+
+<script src="app.js?v=11"></script>
+
+
+
+</body>
+
+</html>
