@@ -3159,7 +3159,7 @@ function displaySalesHistory(
    */
 
   const reversed =
-    [...filtered].reverse();
+  [...filtered];
   
 const historyGroups = {};
 
